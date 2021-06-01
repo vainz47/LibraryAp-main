@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuBuku"
+    tools:context=".DataUsers"
     android:background="@drawable/background"
     android:orientation="vertical">
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,10 +20,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <SearchView
-                android:layout_marginTop="34dp"
-                android:layout_marginBottom="8dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_marginTop="34dp"
+                android:layout_marginBottom="8dp"
                 android:id="@+id/search"
                 android:iconifiedByDefault="false"
                 android:queryHint="Tolong Masukkan" >
@@ -36,12 +34,11 @@
                 android:scrollbars="none"
                 android:orientation="vertical">
                 <ListView
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/list_buku"
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/list_users"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
             </LinearLayout>
 
         </LinearLayout>
@@ -50,11 +47,6 @@
 
 
     </FrameLayout>
-
-
-
-
-
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/tambah_buku"
         android:layout_width="wrap_content"
@@ -70,6 +62,4 @@
         app:backgroundTint="@color/greenLight"
         app:icon="@drawable/star"
         app:iconTint="@android:color/white" />
-
-
 </RelativeLayout>
