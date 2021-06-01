@@ -19,27 +19,26 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh>
     private Context context;
     private SelectedBuku selectedBuku;
 
-    public BukuAdapter(ArrayList<Buku> bukuModelList, SelectedBuku selectedBuku) {
+    public BukuAdapter(ArrayList<Buku> bukuModelList, Context context, SelectedBuku selectedBuku) {
         this.bukuModelList = bukuModelList;
         this.selectedBuku = selectedBuku;
+       this.context = context;
+
     }
 
     @NonNull
     @Override
-    public BukuAdapter.BukuAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
-        return new BukuAdapterVh(LayoutInflater.from(context).inflate(R.layout.row_buku, null));
+    public BukuAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.row_buku,parent, false);
+        return new BukuAdapterVh(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BukuAdapter.BukuAdapterVh holder, int position) {
+    public void onBindViewHolder(@NonNull BukuAdapterVh holder, int position) {
         Buku bukuModel = bukuModelList.get(position);
 
         String judul = bukuModel.getJudul();
-        String prefix = bukuModel.getJudul().substring(0,1);
-
         holder.tvJudul.setText(judul);
-        holder.tvPrefix.setText(prefix);
     }
 
     @Override
@@ -53,11 +52,10 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh>
 
     public class BukuAdapterVh extends RecyclerView.ViewHolder {
 
-        TextView tvPrefix, tvJudul;
+        TextView  tvJudul;
         ImageView imIcon;
         public BukuAdapterVh(@NonNull View itemView) {
             super(itemView);
-            tvPrefix = itemView.findViewById(R.id.prefix);
             tvJudul = itemView.findViewById(R.id.judul_row_buku);
             imIcon = itemView.findViewById(R.id.image_row_buku);
 

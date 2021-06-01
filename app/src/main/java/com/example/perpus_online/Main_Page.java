@@ -68,10 +68,13 @@ public class Main_Page extends AppCompatActivity implements BukuAdapter.Selected
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-
+        recyclerView = findViewById(R.id.recyclerviewBuku);
         FirebaseApp.initializeApp(this);
         mFirebaseInstance = FirebaseDatabase.getInstance();
         DBReference = mFirebaseInstance.getReference("buku");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
 
@@ -80,13 +83,14 @@ public class Main_Page extends AppCompatActivity implements BukuAdapter.Selected
         this.setSupportActionBar(toolbar);
         this.getSupportActionBar().setTitle("");
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
+        bukuArrayList = new ArrayList<>();
+        bukuAdapter = new BukuAdapter(bukuArrayList,this,this);
+        recyclerView.setAdapter(bukuAdapter);
         DBReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                bukuArrayList = new ArrayList<>();
+
                 for (DataSnapshot snap: snapshot.getChildren()){
                     Buku bukuDB = snap.getValue(Buku.class);
                     bukuDB.setKode(snap.getKey());
@@ -99,8 +103,7 @@ public class Main_Page extends AppCompatActivity implements BukuAdapter.Selected
             public void onCancelled(@NonNull DatabaseError error) {}
         });
 
-        bukuAdapter = new BukuAdapter(bukuArrayList, this);
-        recyclerView.setAdapter(bukuAdapter);
+
     }
 
     @Override
