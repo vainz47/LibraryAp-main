@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Perpus_online"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditBukuPelajaranSMP"></activity>
+        <activity android:name=".DataUsers"></activity>
+        <activity android:name=".EditBukuPelajaranSMP" />
         <activity android:name=".EditBukuPelajaranSMA" />
         <activity android:name=".BukuPelajaranSMA" />
         <activity android:name=".EditKaryaIlmiah" />

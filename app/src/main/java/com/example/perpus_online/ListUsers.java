@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,16 +25,16 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class ListKaryaIlmiah extends ArrayAdapter {
+public class ListUsers extends ArrayAdapter {
 
     private Activity mContext;
-    List<Ilmiah> bukuList;
+    List<UserHelperClass> listUsers;
 
 
-    public ListKaryaIlmiah(Activity mContext, List<Ilmiah> bukunya){
-        super(mContext, R.layout.list_buku_karya_ilmiah, bukunya);
+    public ListUsers(Activity mContext, List<UserHelperClass> users){
+        super(mContext, R.layout.list_users, users);
         this.mContext = mContext;
-        this.bukuList = bukunya;
+        this.listUsers = users;
     }
 
     @NonNull
@@ -43,21 +42,23 @@ public class ListKaryaIlmiah extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater inflater = mContext.getLayoutInflater();
-        View listItemView = inflater.inflate(R.layout.list_buku_karya_ilmiah, null, true);
+        View listItemView = inflater.inflate(R.layout.list_users, null, true);
 
-        TextView  judul_buku = listItemView.findViewById(R.id.judul_buku);
-        TextView  penerbit = listItemView.findViewById(R.id.Pengarang);
-        TextView  tahun_buku = listItemView.findViewById(R.id.tahunterbit);
+        TextView  namaUser = listItemView.findViewById(R.id.namaUser);
+        TextView  emailUser = listItemView.findViewById(R.id.emailUser);
+        TextView  genderUser = listItemView.findViewById(R.id.genderUser);
         CircleImageView imageV = listItemView.findViewById(R.id.profile_image);
-        Ilmiah buku = bukuList.get(position);
+        UserHelperClass user = listUsers.get(position);
 
-        penerbit.setText(buku.getPengarang());
-        judul_buku.setText(buku.getJudul());
-        tahun_buku.setText(buku.getTahunterbit());
-        StorageReference mStorageReference = FirebaseStorage.getInstance().getReference().child("images/"+buku.getImageKey());
+        namaUser.setText(user.getName());
+        emailUser.setText(user.getEmail());
+        genderUser.setText(user.getGender());
+
+
+        StorageReference mStorageReference = FirebaseStorage.getInstance().getReference().child("images/"+user.getImageKey());
 
         try {
-            final File localFile = File.createTempFile(buku.getImageKey(), "");
+            final File localFile = File.createTempFile(user.getImageKey(), "");
 //            Toast.makeText(getApplicationContext(), "Image : "+_IMAGE, Toast.LENGTH_LONG).show();
             mStorageReference.getFile(localFile)
                     .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
@@ -75,8 +76,7 @@ public class ListKaryaIlmiah extends ArrayAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    return listItemView;
+        return listItemView;
     }
 
-    }
-
+}
