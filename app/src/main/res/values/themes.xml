@@ -14,7 +14,17 @@
         <item name="android:windowContentTransitions">true</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">true</item>
     </style>
+
+    <style name="Theme.Perpus_online.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Perpus_online.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Perpus_online.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

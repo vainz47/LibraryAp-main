@@ -12,7 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Perpus_online"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditBukuPelajaranSMP"></activity>
+        <activity android:name=".FragmentAssignment"></activity>
+        <activity android:name=".MenuBukuNovel" />
+        <activity
+            android:name=".EditBukuNovel"
+            android:label="@string/title_activity_edit_buku_novel"
+            android:theme="@style/Theme.Perpus_online.NoActionBar" />
+        <activity android:name=".ListBukuNovel" />
+        <activity android:name=".EditBukuSkripsi" />
+        <activity android:name=".EditBukuPelajaranSMP" />
         <activity android:name=".EditBukuPelajaranSMA" />
         <activity android:name=".BukuPelajaranSMA" />
         <activity android:name=".EditKaryaIlmiah" />
