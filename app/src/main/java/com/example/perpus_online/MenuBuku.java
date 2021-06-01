@@ -60,8 +60,6 @@ public class MenuBuku extends AppCompatActivity {
     ListView mListView;
     SearchView mSearch;
     String imageID;
-    Button uploadBtn;
-    DatabaseReference bukuDBRef;
     Uri imageUri;
     ImageView mImageBuku;
 
@@ -81,7 +79,6 @@ public class MenuBuku extends AppCompatActivity {
                                 | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             }
         }
-
         if (Build.VERSION.SDK_INT >= 21) {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
             getWindow().setStatusBarColor(Color.TRANSPARENT);

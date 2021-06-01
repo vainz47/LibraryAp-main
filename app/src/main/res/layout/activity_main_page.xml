@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Main_Page">
+
     <FrameLayout
         android:id="@+id/container_fragment"
         android:layout_width="match_parent"

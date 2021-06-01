@@ -12,12 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Perpus_online"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".MenuBukuNovel"></activity>
         <activity android:name=".ListBukuSkripsi" />
         <activity android:name=".ListBukuNovel" />
         <activity android:name=".EditBukuSkripsi" />
         <activity android:name=".EditBukuNovel" />
         <activity android:name=".DataUsers" />
+
+        <activity android:name=".SelectedBukuActivity"></activity>
+
         <activity android:name=".EditBukuPelajaranSMP" />
         <activity android:name=".EditBukuPelajaranSMA" />
         <activity android:name=".BukuPelajaranSMA" />
