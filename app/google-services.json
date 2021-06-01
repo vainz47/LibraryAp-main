@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "974064383675",
+    "firebase_url": "https://perpusonline-67990-default-rtdb.firebaseio.com",
+    "project_id": "perpusonline-67990",
+    "storage_bucket": "perpusonline-67990.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974064383675:android:44263a9a44bf8d10db5b9e",
+        "android_client_info": {
+          "package_name": "com.example.perpus_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974064383675-qqq8o4emanb4u35a0dnrbg657hodfb6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6hmC0GLtlbR1-JpCygYgye9LNyGoh6U4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974064383675-qqq8o4emanb4u35a0dnrbg657hodfb6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

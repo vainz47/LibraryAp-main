@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.perpus_online">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Perpus_online"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ProfileBukuPelajaranSMP"></activity>
+        <activity android:name=".ProfileBukuPelajaranSMA" />
+        <activity android:name=".ProfileBukuKaryaIlmiah" />
+        <activity android:name=".ProfileBukuSkripsi" />
+        <activity android:name=".ProfileBukuNovel" />
+        <activity android:name=".TambahBukuSkripsi" />
+        <activity android:name=".TambahBukuKaryaIlmiah" />
+        <activity android:name=".TambahBukuPelajaranSMP" />
+        <activity android:name=".TambahBukuPelajaranSMA" />
+        <activity android:name=".list_buku_skripsi" />
+        <activity android:name=".MenuBukuSkripsi" />
+        <activity android:name=".MenuBukuKaryaIlmiah" />
+        <activity android:name=".BukuKaryaIlmiah" />
+        <activity android:name=".MenuBukuPelajaranSMA" />
+        <activity android:name=".MenuBukuPelajaranSMP" />
+        <activity android:name=".MenuNovel" />
+        <activity android:name=".DataPerpus" />
+        <activity android:name=".TambahNovel" />
+        <activity android:name=".ManajemenNovel" />
+        <activity android:name=".TambahBuku" />
+        <activity android:name=".MenuBuku" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".Regis" />
+        <activity android:name=".Main_Page" />
+        <activity android:name=".Login" />
+        <activity android:name=".First_Page">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
