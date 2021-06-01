@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Main_Page">
+    <FrameLayout
+        android:id="@+id/container_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_menu" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -17,10 +23,5 @@
         app:itemRippleColor="@color/white"
         app:menu="@menu/menu" />
 
-    <FrameLayout
-        android:id="@+id/container_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_navigation_menu" />
 
 </RelativeLayout>
