@@ -3,7 +3,11 @@ package com.example.perpus_online;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,14 +16,31 @@ import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class Main_Page extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main_Page extends AppCompatActivity implements BukuAdapter.SelectedBuku {
     BottomNavigationView bottomNavigationView;
+    RecyclerView recyclerView;
+    Toolbar toolbar;
+    ArrayList<Buku> bukuArrayList;
+    BukuAdapter bukuAdapter;
+
+    FirebaseDatabase mFirebaseInstance;
+    DatabaseReference DBReference;
+
     private BottomNavigationView.OnNavigationItemSelectedListener navigation = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
@@ -47,8 +68,44 @@ public class Main_Page extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+        FirebaseApp.initializeApp(this);
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        DBReference = mFirebaseInstance.getReference("buku");
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
+
+        toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.recyclerviewBuku);
+        this.setSupportActionBar(toolbar);
+        this.getSupportActionBar().setTitle("");
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        DBReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                bukuArrayList = new ArrayList<>();
+                for (DataSnapshot snap: snapshot.getChildren()){
+                    Buku bukuDB = snap.getValue(Buku.class);
+                    bukuDB.setKode(snap.getKey());
+                    bukuArrayList.add(bukuDB);
+                    System.out.println("BUKU : "+bukuDB.getJudul());
+                }
+                bukuAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
+        bukuAdapter = new BukuAdapter(bukuArrayList, this);
+        recyclerView.setAdapter(bukuAdapter);
+    }
+
+    @Override
+    public void selectedBuku(Buku bukuModel) {
+        startActivity(new Intent(Main_Page.this, SelectedBukuActivity.class).putExtra("data", bukuModel));
     }
 
     //    TextView username, password;
