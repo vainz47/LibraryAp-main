@@ -37,6 +37,7 @@
         <activity android:name=".Regis" />
         <activity android:name=".Main_Page" />
         <activity android:name=".Login" />
+        <activity android:name=".FragmentHome"/>
         <activity android:name=".First_Page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

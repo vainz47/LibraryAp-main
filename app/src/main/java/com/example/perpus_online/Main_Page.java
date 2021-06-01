@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main_Page extends AppCompatActivity implements BukuAdapter.SelectedBuku {
+public class Main_Page extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     RecyclerView recyclerView;
     Toolbar toolbar;
@@ -63,53 +63,53 @@ public class Main_Page extends AppCompatActivity implements BukuAdapter.Selected
         }
     };
 
-    @SuppressLint("ResourceType")
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
-        recyclerView = findViewById(R.id.recyclerviewBuku);
-        FirebaseApp.initializeApp(this);
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        DBReference = mFirebaseInstance.getReference("buku");
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
-
-        toolbar = findViewById(R.id.toolbar);
-        recyclerView = findViewById(R.id.recyclerviewBuku);
-        this.setSupportActionBar(toolbar);
-        this.getSupportActionBar().setTitle("");
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        bukuArrayList = new ArrayList<>();
-        bukuAdapter = new BukuAdapter(bukuArrayList,this,this);
-        recyclerView.setAdapter(bukuAdapter);
-        DBReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot snap: snapshot.getChildren()){
-                    Buku bukuDB = snap.getValue(Buku.class);
-                    bukuDB.setKode(snap.getKey());
-                    bukuArrayList.add(bukuDB);
-                    System.out.println("BUKU : "+bukuDB.getJudul());
-                }
-                bukuAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
-        });
-
-
-    }
-
-    @Override
-    public void selectedBuku(Buku bukuModel) {
-        startActivity(new Intent(Main_Page.this, SelectedBukuActivity.class).putExtra("data", bukuModel));
-    }
+//    @SuppressLint("ResourceType")
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main_page);
+//        recyclerView = findViewById(R.id.recyclerviewBuku);
+//        FirebaseApp.initializeApp(this);
+//        mFirebaseInstance = FirebaseDatabase.getInstance();
+//        DBReference = mFirebaseInstance.getReference("buku");
+//
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
+//
+//        toolbar = findViewById(R.id.toolbar);
+//        recyclerView = findViewById(R.id.recyclerviewBuku);
+//        this.setSupportActionBar(toolbar);
+//        this.getSupportActionBar().setTitle("");
+//
+//        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+//        bukuArrayList = new ArrayList<>();
+//        bukuAdapter = new BukuAdapter(bukuArrayList,this,this);
+//        recyclerView.setAdapter(bukuAdapter);
+//        DBReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                for (DataSnapshot snap: snapshot.getChildren()){
+//                    Buku bukuDB = snap.getValue(Buku.class);
+//                    bukuDB.setKode(snap.getKey());
+//                    bukuArrayList.add(bukuDB);
+//                    System.out.println("BUKU : "+bukuDB.getJudul());
+//                }
+//                bukuAdapter.notifyDataSetChanged();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {}
+//        });
+//
+//
+//    }
+//
+//    @Override
+//    public void selectedBuku(Buku bukuModel) {
+//        startActivity(new Intent(Main_Page.this, SelectedBukuActivity.class).putExtra("data", bukuModel));
+//    }
 
     //    TextView username, password;
 //
