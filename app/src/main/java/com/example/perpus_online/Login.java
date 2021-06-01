@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-
+    //commit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, AdminActivity.class);
+                Intent intent = new Intent(Login.this, Regis.class);
                 startActivity(intent);
             }
         });
@@ -131,7 +131,7 @@ public class Login extends AppCompatActivity {
                             startActivity(intent);
                         }
                         if(status.equals("user")){
-                            Intent intent = new Intent(Login.this, UserProfile.class);
+                            Intent intent = new Intent(Login.this, Main_Page.class);
                             intent.putExtra("name",nameFromDB);
                             intent.putExtra("email",emailFromDB);
                             intent.putExtra("username",usernameFromDB);
