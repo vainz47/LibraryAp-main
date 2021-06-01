@@ -131,7 +131,7 @@ public class Login extends AppCompatActivity {
                             startActivity(intent);
                         }
                         if(status.equals("user")){
-                            Intent intent = new Intent(Login.this, UserProfile.class);
+                            Intent intent = new Intent(Login.this, Main_Page.class);
                             intent.putExtra("name",nameFromDB);
                             intent.putExtra("email",emailFromDB);
                             intent.putExtra("username",usernameFromDB);
