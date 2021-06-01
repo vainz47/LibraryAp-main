@@ -19,11 +19,11 @@ import android.widget.Toolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main_Page extends AppCompatActivity {
+    Fragment f = new FragmentHome();
     BottomNavigationView bottomNavigationView;
     private BottomNavigationView.OnNavigationItemSelectedListener navigation = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
-            Fragment f = null;
             switch (item.getItemId()){
                 case R.id.books: //id apa iniiiiiiiiiiiiiiiiiiiiii
                     f = new FragmentHome();
@@ -49,6 +49,7 @@ public class Main_Page extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,f).commit();
     }
 
     //    TextView username, password;
