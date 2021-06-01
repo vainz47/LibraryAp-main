@@ -8,16 +8,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp">
-        <TextView
 
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="UPDATE BUKU PELAJARAN"
-            android:textSize="25dp"
-            />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -28,7 +19,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:hint="Judul Buku"
-                android:singleLine="true" />
+                android:singleLine="true"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +47,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:hint="Penerbit"
+                android:hint="Universitas"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_halaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:hint="Jumlah Halaman"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:hint="ISBN"
+                android:hint="Genre"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>

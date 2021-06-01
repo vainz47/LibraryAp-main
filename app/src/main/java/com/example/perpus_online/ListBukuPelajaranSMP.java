@@ -43,7 +43,6 @@ public class ListBukuPelajaranSMP extends ArrayAdapter {
 
         LayoutInflater inflater = mContext.getLayoutInflater();
         View listItemView = inflater.inflate(R.layout.list_buku_pelajaran_smp, null, true);
-
         TextView  judul_buku = listItemView.findViewById(R.id.judul_buku);
         TextView  penerbit = listItemView.findViewById(R.id.Pengarang);
         TextView  tahun_buku = listItemView.findViewById(R.id.tahunterbit);

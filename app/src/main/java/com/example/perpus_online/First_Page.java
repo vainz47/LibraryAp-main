@@ -39,7 +39,7 @@ public class First_Page extends AppCompatActivity {
 
         //Splash Screen
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(First_Page.this, Login.class);
+            Intent intent = new Intent(First_Page.this, AdminActivity.class);
 
             Pair[] pairs= new Pair[2];
             pairs[0] = new Pair<View, String>(book, "logo_book");

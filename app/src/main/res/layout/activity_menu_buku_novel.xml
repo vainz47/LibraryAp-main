@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuBukuSkripsi"
+    tools:context=".MenuBukuNovel"
     android:background="@drawable/background"
     android:orientation="vertical">
 
@@ -24,8 +24,6 @@
             <SearchView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="34dp"
-                android:layout_marginBottom="8dp"
                 android:id="@+id/search"
                 android:iconifiedByDefault="false"
                 android:queryHint="Tolong Masukkan" >
@@ -36,7 +34,7 @@
                 android:scrollbars="none"
                 android:orientation="vertical">
                 <ListView
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="10dp"
                     android:id="@+id/list_buku"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -44,10 +42,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
-
-
     </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
