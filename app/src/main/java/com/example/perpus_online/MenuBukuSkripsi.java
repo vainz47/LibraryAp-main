@@ -323,7 +323,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
     private void dialogUpdateBuku(final BukuSkripsi buku) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.activity_edit_karya_ilmiah, null);
+        View view = getLayoutInflater().inflate(R.layout.activity_edit_buku_skripsi, null);
 
         String dataJudul = buku.getJudul();
         String dataPengarang = buku.getPengarang();

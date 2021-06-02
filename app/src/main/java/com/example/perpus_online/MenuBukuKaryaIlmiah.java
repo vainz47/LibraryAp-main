@@ -254,7 +254,7 @@ public class MenuBukuKaryaIlmiah extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Tambah Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.activity_edit_karya_ilmiah, null);
+        View view = getLayoutInflater().inflate(R.layout.layout_edit_buku_karya_ilmiah, null);
 
         edit_judul = (EditText) view.findViewById(R.id.edit_judul_buku);
         edit_pengarang = (EditText) view.findViewById(R.id.edit_pengarang);

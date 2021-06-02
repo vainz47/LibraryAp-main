@@ -45,17 +45,34 @@
                 android:layout_centerVertical="true"
                 android:includeFontPadding="false"
                 android:layout_marginLeft="10dp"/>
-            <Button
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:textColor="@color/white"
-                android:background="@drawable/costum_button"
+                android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profile_image"
-                android:layout_below="@+id/username_label"
-                android:text="Change Picture"
-                android:textSize="10sp"
-                android:id="@+id/change_image_btn"
-                />
+                android:layout_below="@+id/username_label">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/costum_button"
+                    android:text="Change Picture"
+                    android:textSize="10sp"
+                    android:id="@+id/change_image_btn"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/costum_button"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/change_image_btn"
+                    android:text="Logout"
+                    android:textSize="10sp"
+                    android:id="@+id/logout_btn"
+                    />
+
+            </RelativeLayout>
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"

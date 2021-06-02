@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +16,7 @@ public class AdminActivity extends AppCompatActivity {
     CardView data_perpus, pengguna;
     TextView username;
     String _USERNAME;
+    Button callLogout;
 
     DatabaseReference reference;
 
@@ -28,7 +30,16 @@ public class AdminActivity extends AppCompatActivity {
         data_perpus = (CardView) findViewById(R.id.data_perpus);
         pengguna = (CardView) findViewById(R.id.pengguna);
         username = (TextView) findViewById(R.id.username_label);
+        callLogout = (Button) findViewById(R.id.logout_btn);
 
+        callLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         data_perpus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +51,7 @@ public class AdminActivity extends AppCompatActivity {
         pengguna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminActivity.this, DataUsers.class);
+                Intent intent = new Intent(AdminActivity.this, Main_Page.class);
                 startActivity(intent);
             }
         });

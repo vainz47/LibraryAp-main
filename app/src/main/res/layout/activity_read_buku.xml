@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,46 +7,36 @@
     tools:context=".ReadBuku"
     android:background="@drawable/background"
     android:orientation="vertical">
-
-    <FrameLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:background="#AA1f73b7"/>
+        android:layout_height="240dp"
+        android:background="#AA1f73b7"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <SearchView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/search"
+            android:iconifiedByDefault="false"
+            android:queryHint="Tolong Masukkan" >
+        </SearchView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scrollbars="none"
             android:orientation="vertical">
-            <SearchView
+            <ListView
+                android:layout_marginTop="4dp"
+                android:id="@+id/list_users"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginTop="34dp"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/search"
-                android:iconifiedByDefault="false"
-                android:queryHint="Tolong Masukkan" >
-            </SearchView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none"
-                android:orientation="vertical">
-                <ListView
-                    android:layout_marginTop="4dp"
-                    android:id="@+id/list_buku"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-            </LinearLayout>
-
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>
 
-
-
-
-    </FrameLayout>
-
+    </LinearLayout>
 </RelativeLayout>
