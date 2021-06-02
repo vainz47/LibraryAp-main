@@ -53,7 +53,11 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
         toolbar = root.findViewById(R.id.toolbar);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(root.getContext(), DividerItemDecoration.VERTICAL));
+        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(root.getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         bukuArrayList = new ArrayList<>();
         bukuAdapter = new BukuAdapter(bukuArrayList, root.getContext(), this);
         recyclerView.setAdapter(bukuAdapter);

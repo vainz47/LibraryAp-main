@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh> {
 
     private ArrayList<Buku> bukuModelList;
@@ -52,11 +54,10 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh>
     public class BukuAdapterVh extends RecyclerView.ViewHolder {
 
         TextView  tvJudul;
-        ImageView imIcon, imageBuku;
+        CircleImageView imageBuku;
         public BukuAdapterVh(@NonNull View itemView) {
             super(itemView);
             tvJudul = itemView.findViewById(R.id.judul_row_buku);
-            imIcon = itemView.findViewById(R.id.image_row_buku);
             imageBuku = itemView.findViewById(R.id.prefix);
 
             itemView.setOnClickListener(new View.OnClickListener() {
