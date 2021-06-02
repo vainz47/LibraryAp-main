@@ -41,8 +41,8 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/text"
-            android:transitionName="logo_text"/>
+            android:background="@drawable/text2"
+            android:transitionName="logo_text" />
     </RelativeLayout>
 
 </LinearLayout>

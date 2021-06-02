@@ -43,6 +43,8 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
 
         View root = inflater.inflate(R.layout.layout_home, container, false);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);
+        recyclerView2 = root.findViewById(R.id.recyclerviewBuku2);
+        recyclerView3 = root.findViewById(R.id.recyclerviewBuku3);
         FirebaseApp.initializeApp(root.getContext());
         mFirebaseInstance = FirebaseDatabase.getInstance();
         DBReference = mFirebaseInstance.getReference("buku");
@@ -51,18 +53,19 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView3.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
         toolbar = root.findViewById(R.id.toolbar);
-        recyclerView = root.findViewById(R.id.recyclerviewBuku);
-        recyclerView2 = root.findViewById(R.id.recyclerviewBuku2);
-        recyclerView3 = root.findViewById(R.id.recyclerviewBuku3);
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(root.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         LinearLayoutManager linearLayoutManager2 =new LinearLayoutManager(root.getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        linearLayoutManager2.setOrientation(LinearLayoutManager.HORIZONTAL);
         LinearLayoutManager linearLayoutManager3 =new LinearLayoutManager(root.getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        linearLayoutManager3.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView2.setLayoutManager(linearLayoutManager2);
@@ -108,6 +111,7 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
             @Override
             public void onCancelled(@NonNull DatabaseError error) { }
         });
+        //buku sma get database
         DBReference3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -122,8 +126,6 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
             @Override
             public void onCancelled(@NonNull DatabaseError error) { }
         });
-
-
         return root;
     }
 

@@ -11,14 +11,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="250dp">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:background="@drawable/logo_2"
+            android:id="@+id/ivBuku"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/buku"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:transitionName="logo_book"/>
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:background="@drawable/text2"
+            android:layout_below="@+id/ivBuku"
+            android:layout_centerHorizontal="true"
             android:transitionName="logo_book"/>
 
     </RelativeLayout>
