@@ -29,13 +29,13 @@ import java.util.ArrayList;
 public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
 
     BottomNavigationView bottomNavigationView;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerView2 , recyclerView3;
     Toolbar toolbar;
-    ArrayList<Buku> bukuArrayList;
-    BukuAdapter bukuAdapter;
+    ArrayList<Buku> bukuArrayList, bukuArrayList2, bukuArrayList3;
+    BukuAdapter bukuAdapter, bukuSMPAdapter, bukuSMAAdapter;
 
     FirebaseDatabase mFirebaseInstance;
-    DatabaseReference DBReference;
+    DatabaseReference DBReference, DBReference2, DBReference3;
 
     @Nullable
     @Override
@@ -46,25 +46,42 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
         FirebaseApp.initializeApp(root.getContext());
         mFirebaseInstance = FirebaseDatabase.getInstance();
         DBReference = mFirebaseInstance.getReference("buku");
+        DBReference2 = mFirebaseInstance.getReference("bukuPelajaranSMP");
+        DBReference3 = mFirebaseInstance.getReference("bukuPelajaranSMA");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
         toolbar = root.findViewById(R.id.toolbar);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);
+        recyclerView2 = root.findViewById(R.id.recyclerviewBuku2);
+        recyclerView3 = root.findViewById(R.id.recyclerviewBuku3);
 
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(root.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        LinearLayoutManager linearLayoutManager2 =new LinearLayoutManager(root.getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        LinearLayoutManager linearLayoutManager3 =new LinearLayoutManager(root.getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView2.setLayoutManager(linearLayoutManager2);
+        recyclerView3.setLayoutManager(linearLayoutManager3);
 
         bukuArrayList = new ArrayList<>();
+        bukuArrayList2 = new ArrayList<>();
+        bukuArrayList3 = new ArrayList<>();
         bukuAdapter = new BukuAdapter(bukuArrayList, root.getContext(), this);
+        bukuSMPAdapter = new BukuAdapter(bukuArrayList2, root.getContext(), this);
+        bukuSMAAdapter = new BukuAdapter(bukuArrayList3, root.getContext(), this);
+
         recyclerView.setAdapter(bukuAdapter);
+        recyclerView2.setAdapter(bukuSMPAdapter);
+        recyclerView3.setAdapter(bukuSMAAdapter);
+        //buku get database
         DBReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Buku bukuDB = snap.getValue(Buku.class);
                     bukuDB.setKode(snap.getKey());
@@ -73,10 +90,37 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
                 }
                 bukuAdapter.notifyDataSetChanged();
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
+        //buku smp get database
+        DBReference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Buku bukuDB = snap.getValue(Buku.class);
+                    bukuDB.setKode(snap.getKey());
+                    bukuArrayList2.add(bukuDB);
+                    System.out.println("BUKU : " + bukuDB.getJudul());
+                }
+                bukuSMPAdapter.notifyDataSetChanged();
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
+        DBReference3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Buku bukuDB = snap.getValue(Buku.class);
+                    bukuDB.setKode(snap.getKey());
+                    bukuArrayList3.add(bukuDB);
+                    System.out.println("BUKU SMA: " + bukuDB.getJudul());
+                }
+                bukuSMAAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
 
 

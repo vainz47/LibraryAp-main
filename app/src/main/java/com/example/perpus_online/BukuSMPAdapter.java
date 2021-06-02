@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,17 +20,16 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh> {
+public class BukuSMPAdapter extends RecyclerView.Adapter<BukuSMPAdapter.BukuAdapterVh> {
 
     private ArrayList<Buku> bukuModelList;
     private Context context;
     private SelectedBuku selectedBuku;
 
-    public BukuAdapter(ArrayList<Buku> bukuModelList, Context context, SelectedBuku selectedBuku) {
+    public BukuSMPAdapter(ArrayList<Buku> bukuModelList, Context context, SelectedBuku selectedBuku) {
         this.bukuModelList = bukuModelList;
         this.selectedBuku = selectedBuku;
         this.context = context;

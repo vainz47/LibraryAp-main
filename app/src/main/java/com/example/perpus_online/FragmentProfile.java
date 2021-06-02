@@ -36,7 +36,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FragmentProfile extends Fragment {
     UserHelperClass userProfile;
-    Button button, change_image_btn;
+    Button button, change_image_btn, callLogout;
     TextInputLayout fullName, maill, username, password;
     TextView fullNameLabel, usernameLabel;
     String _NAME, _EMAIL, _USERNAME, _PASSWORD, _KEY;
@@ -73,6 +73,7 @@ public class FragmentProfile extends Fragment {
         password = (TextInputLayout)root.findViewById(R.id.password);
         button = (Button) root.findViewById(R.id.button);
         profile_image = (CircleImageView) root.findViewById(R.id.profile_image);
+
         change_image_btn = (Button) root.findViewById(R.id.change_image_btn);
         change_image_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +87,15 @@ public class FragmentProfile extends Fragment {
         });
 
         showAllUserData(userProfile);
+        callLogout = (Button) root.findViewById(R.id.logout_btn);
+        callLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Login.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
