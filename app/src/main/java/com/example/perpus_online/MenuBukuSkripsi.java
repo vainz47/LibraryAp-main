@@ -258,7 +258,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
 
         edit_judul = (EditText) view.findViewById(R.id.edit_judul_buku);
         edit_pengarang = (EditText) view.findViewById(R.id.edit_pengarang);
-        edit_penerbit = (EditText) view.findViewById(R.id.edit_jurnal);
+        edit_penerbit = (EditText) view.findViewById(R.id.edit_universitas);
         edit_isbn = (EditText) view.findViewById(R.id.edit_halaman);
         edit_tahun_terbit = (EditText) view.findViewById(R.id.edit_tahun);
         edit_desc = (EditText) view.findViewById(R.id.edit_desc);

@@ -43,7 +43,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edit_penerbit"
+                android:id="@+id/edit_universitas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:hint="Genre"
+                android:hint="ISBN"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>

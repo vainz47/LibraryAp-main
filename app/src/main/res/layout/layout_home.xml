@@ -17,146 +17,148 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <LinearLayout
+
+        <androidx.appcompat.widget.Toolbar
+
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="?attr/actionBarSize">
 
-
-            <androidx.appcompat.widget.Toolbar
-
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Buku"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.Toolbar>
-        </LinearLayout>
-
-        <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/greenLight"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="5dp"
-                            android:text= "Buku :"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
-                        <TextView
-                            android:id="@+id/liat1"
-                            android:text="Liat Semua"
-                            android:textAlignment="textEnd"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="@color/black"/>
-                    </LinearLayout>
-
-            <RelativeLayout
-                android:background="@color/greenLight"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                >
+                android:layout_gravity="center"
+                android:text="Buku"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greenLight"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:text="Buku :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/liat1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Liat Semua"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greenLight">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewBuku"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/greenLight"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="5dp"
-            android:text= "Buku Pelajaran SMP :"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:text="Buku Pelajaran SMP :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/liat2"
-            android:text="Liat Semua"
-            android:textAlignment="textEnd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/black"/>
+            android:text="Liat Semua"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <RelativeLayout
-        android:background="@color/greenLight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:background="@color/greenLight">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewBuku2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/greenLight"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="5dp"
-            android:text= "Buku Pelajaran SMA:"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:text="Buku Pelajaran SMA:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/liat3"
-            android:text="Liat Semua"
-            android:textAlignment="textEnd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/black"/>
+            android:text="Liat Semua"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <RelativeLayout
-        android:background="@color/greenLight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/greenLight">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewBuku3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp" />
 
     </RelativeLayout>
 
