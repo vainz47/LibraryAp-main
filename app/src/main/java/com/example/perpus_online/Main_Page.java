@@ -117,13 +117,13 @@ public class Main_Page extends AppCompatActivity {
 //        username = findViewById(R.id.getUsername);
 //        password = findViewById(R.id.getPassword);
 
-    //@Override
-//    protected void onCreate(Bundle savedInstanceState){
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main_page);
-//
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_page);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 //        Intent intent = getIntent();
 //        String usernameS = intent.getStringExtra("username");
@@ -131,7 +131,7 @@ public class Main_Page extends AppCompatActivity {
 //
 //        username.setText(usernameS);
 //        password.setText(passwordS);
-//    }
+    }
 //
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

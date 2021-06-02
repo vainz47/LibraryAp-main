@@ -41,7 +41,7 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.activity_main_page, container, false);
+        View root = inflater.inflate(R.layout.layout_home, container, false);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);
         FirebaseApp.initializeApp(root.getContext());
         mFirebaseInstance = FirebaseDatabase.getInstance();

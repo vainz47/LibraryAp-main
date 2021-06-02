@@ -4,29 +4,58 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Main_Page">
+    tools:context=".FragmentHome"
+    android:background="@drawable/background">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#344D64"
-        app:menu="@menu/searching"
-        app:navigationIconTint="@color/icons_color">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="9">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
 
-    </com.google.android.material.appbar.MaterialToolbar>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello Bun!"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    />
+            </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:background="@drawable/recyclerview_bg">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku"
+                android:layout_width="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/profill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:gravity="center"
-            android:textColor="#000"
-            android:textSize="60sp"/>
+
     </RelativeLayout>
 
 </RelativeLayout>
