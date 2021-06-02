@@ -42,6 +42,7 @@ public class ListBukuNovel extends ArrayAdapter {
         judul_buku.setText(buku.getJudul());
         tahun_buku.setText(buku.getTahunterbit());
 
+
         return listItemView;
     }
 }
