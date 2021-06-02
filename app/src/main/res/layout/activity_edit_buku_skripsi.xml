@@ -9,14 +9,14 @@
         android:orientation="vertical"
         android:padding="10dp">
         <TextView
-
             android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="UPDATE BUKU PELAJARAN"
+            android:layout_height="match_parent"
+            android:text="UPDATE SKRIPSI"
             android:textSize="25dp"
+            android:textStyle="bold"
+
             />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:hint="Pengarang"
+                android:hint="Penulis"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,11 +51,25 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edit_penerbit"
+                android:id="@+id/edit_jurnal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:hint="Penerbit"
+                android:hint="Universitas"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_halaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:hint="Jumlah Halaman"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,20 +88,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edit_isbn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:hint="ISBN"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_weight="1.0"
-                android:hint="Deskripsi"
+                android:hint="Abstrak"
                 android:inputType="textMultiLine"
                 android:singleLine="true" />
 

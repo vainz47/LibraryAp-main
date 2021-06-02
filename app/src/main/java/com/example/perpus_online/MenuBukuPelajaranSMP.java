@@ -196,8 +196,6 @@ public class MenuBukuPelajaranSMP extends AppCompatActivity {
 
     }
 
-
-
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
         Window win = activity.getWindow();
@@ -217,12 +215,13 @@ public class MenuBukuPelajaranSMP extends AppCompatActivity {
         String thePengarang = "Pengarang\t\t\t: "+buku.getPengarang();
         String thePenerbit  = "Penerbit\t\t\t\t\t: "+buku.getPenerbit();
         String theTahun     = "Tahun Terbit\t\t: "+buku.getTahunterbit();
+        String theISBN     = "ISBN\t\t: "+buku.getISBN();
         String thePeminjam  = "Status\t\t\t\t: "+buku.getStatus();
         String theDeskripsi = "Deskripsi\t\t\t\t: "+buku.getDeskripsi();
 
         builder.setTitle("Pilih Aksi");
         builder.setMessage(theJudul + "\n" + thePengarang + "\n" + thePenerbit +
-                "\n" + theTahun + "\n" + thePeminjam + "\n" + theDeskripsi + "\n");
+                "\n" + theTahun + "\n" + thePeminjam + "\n" + thePeminjam + "\n" + theISBN + "\n" + theDeskripsi + "\n");
 
         builder.setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
             @Override
@@ -253,7 +252,7 @@ public class MenuBukuPelajaranSMP extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Tambah Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.activity_edit_buku, null);
+        View view = getLayoutInflater().inflate(R.layout.activity_edit_buku_pelajaran_smp, null);
 
         edit_judul = (EditText) view.findViewById(R.id.edit_judul_buku);
         edit_pengarang = (EditText) view.findViewById(R.id.edit_pengarang);
@@ -290,7 +289,6 @@ public class MenuBukuPelajaranSMP extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gallery = new Intent();
                 gallery.setType("image/*");
-
                 imageUri = null;
                 gallery.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(gallery, "Select Picture"), 1);
@@ -322,7 +320,7 @@ public class MenuBukuPelajaranSMP extends AppCompatActivity {
     private void dialogUpdateBuku(final BukuPelajaranSMP buku) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.layout_edit_buku, null);
+        View view = getLayoutInflater().inflate(R.layout.activity_edit_buku_pelajaran_smp, null);
 
         String dataJudul = buku.getJudul();
         String dataPengarang = buku.getPengarang();

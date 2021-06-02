@@ -65,7 +65,7 @@ public class DataPerpus extends AppCompatActivity {
         dataNovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DataPerpus.this, ManajemenNovel.class);
+                Intent intent = new Intent(DataPerpus.this, MenuBukuNovel.class);
                 startActivity(intent);
             }
         });

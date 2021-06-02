@@ -49,14 +49,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class MenuBukuSkripsi extends AppCompatActivity {
+public class MenuBukuNovel extends AppCompatActivity {
 
     ExtendedFloatingActionButton tambah_buku;
     EditText edit_judul, edit_pengarang, edit_penerbit, edit_tahun_terbit, edit_isbn, edit_desc, edit_ISBN;
     FirebaseDatabase mFirebaseInstance;
     DatabaseReference mDatabaseReference;
-    ArrayList<BukuSkripsi> listBuku;
-    ListBukuSkripsi mAdapter;
+    ArrayList<BukuNovel> listBuku;
+    ListBukuNovel mAdapter;
     ListView mListView;
     SearchView mSearch;
     String imageID;
@@ -68,7 +68,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_buku_skripsi);
+        setContentView(R.layout.activity_menu_buku_novel);
 
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
@@ -92,18 +92,18 @@ public class MenuBukuSkripsi extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         mFirebaseInstance = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseInstance.getReference("karyaBukuSkripsi");
+        mDatabaseReference = mFirebaseInstance.getReference("bukuNovel");
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listBuku = new ArrayList<>();
                 for (DataSnapshot mDataSnapshot : snapshot.getChildren()) {
-                    BukuSkripsi mBuku = mDataSnapshot.getValue(BukuSkripsi.class);
+                    BukuNovel mBuku = mDataSnapshot.getValue(BukuNovel.class);
                     mBuku.setKode(mDataSnapshot.getKey());
                     listBuku.add(mBuku);
                 }
 
-                mAdapter = new ListBukuSkripsi(MenuBukuSkripsi.this, listBuku);
+                mAdapter = new ListBukuNovel(MenuBukuNovel.this, listBuku);
                 mListView.setAdapter(mAdapter);
                 System.out.println("DATAAAA : " + listBuku.size());
 
@@ -114,22 +114,22 @@ public class MenuBukuSkripsi extends AppCompatActivity {
                         if (!s.isEmpty()) {
                             System.out.println("MASUK GA");
 
-                            ArrayList<BukuSkripsi> tempBuku = new ArrayList<>();
+                            ArrayList<BukuNovel> tempBuku = new ArrayList<>();
                             System.out.println(listBuku.size());
                             for (int i = 0; i < listBuku.size(); i++) {
-                                if (listBuku.get(i).getJudul().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getPengarang().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getTahunterbit().toLowerCase().contains(s.toLowerCase())) {
+                                if (listBuku.get(i).getJudul().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getPenerbit().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getTahunterbit().toLowerCase().contains(s.toLowerCase())) {
                                     tempBuku.add(listBuku.get(i));
                                     System.out.println("MASUK GA");
                                 }
                             }
                             if (!(tempBuku.size() == 0)) {
-                                ListBukuSkripsi newAdapter = new ListBukuSkripsi(MenuBukuSkripsi.this, tempBuku);
+                                ListBukuNovel newAdapter = new ListBukuNovel(MenuBukuNovel.this, tempBuku);
                                 mListView.setAdapter(newAdapter);
                             } else {
                                 System.out.println("MASUK GA");
                             }
                         } else {
-                            ListBukuSkripsi newAdapter = new ListBukuSkripsi(MenuBukuSkripsi.this, listBuku);
+                            ListBukuNovel newAdapter = new ListBukuNovel(MenuBukuNovel.this, listBuku);
                             mListView.setAdapter(newAdapter);
                         }
                         return false;
@@ -140,22 +140,22 @@ public class MenuBukuSkripsi extends AppCompatActivity {
                         if (!s.isEmpty()) {
                             System.out.println("MASUK GA");
 
-                            ArrayList<BukuSkripsi> tempBuku = new ArrayList<>();
+                            ArrayList<BukuNovel> tempBuku = new ArrayList<>();
                             System.out.println(listBuku.size());
                             for (int i = 0; i < listBuku.size(); i++) {
-                                if (listBuku.get(i).getJudul().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getPengarang().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getHalaman().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getTahunterbit().toLowerCase().contains(s.toLowerCase())) {
+                                if (listBuku.get(i).getJudul().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getPenerbit().toLowerCase().contains(s.toLowerCase()) || listBuku.get(i).getTahunterbit().toLowerCase().contains(s.toLowerCase())) {
                                     tempBuku.add(listBuku.get(i));
                                     System.out.println("MASUK GA");
                                 }
                             }
                             if (!(tempBuku.size() == 0)) {
-                                ListBukuSkripsi newAdapter = new ListBukuSkripsi(MenuBukuSkripsi.this, tempBuku);
+                                ListBukuNovel newAdapter = new ListBukuNovel(MenuBukuNovel.this, tempBuku);
                                 mListView.setAdapter(newAdapter);
                             } else {
                                 // action jika hasil kosong
                             }
                         } else {
-                            ListBukuSkripsi newAdapter = new ListBukuSkripsi(MenuBukuSkripsi.this, listBuku);
+                            ListBukuNovel newAdapter = new ListBukuNovel(MenuBukuNovel.this, listBuku);
                             mListView.setAdapter(newAdapter);
                         }
                         return false;
@@ -166,7 +166,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MenuBukuSkripsi.this,
+                Toast.makeText(MenuBukuNovel.this,
                         error.getDetails() + " " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
@@ -184,7 +184,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BukuSkripsi newBuku = new BukuSkripsi();
+                BukuNovel newBuku = new BukuNovel();
                 newBuku = listBuku.get(position);
                 listBuku.get(position).setImageKey(newBuku.getImageKey());
                 System.out.println("IMAGE KEYNYA DAPAT : "+newBuku.getImageKey());
@@ -195,8 +195,6 @@ public class MenuBukuSkripsi extends AppCompatActivity {
 
 
     }
-
-
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
@@ -210,20 +208,20 @@ public class MenuBukuSkripsi extends AppCompatActivity {
         win.setAttributes(winParams);
     }
 
-    public void onDataClick(final BukuSkripsi buku, int position) {
+    public void onDataClick(final BukuNovel buku, int position) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String theJudul     = "Judul\t\t\t\t\t\t: "+buku.getJudul();
-        String thePengarang = "Penulis\t\t\t: "+buku.getPengarang();
-        String theJurnal     = "Universitas\t\t: "+buku.getUniversitas();
+        String thePengarang = "Pengarang\t\t\t: "+buku.getPengarang();
+        String thePenerbit  = "Penerbit\t\t\t\t\t: "+buku.getPenerbit();
         String theTahun     = "Tahun Terbit\t\t: "+buku.getTahunterbit();
-        String theHalaman     = "Jumlah Halamanl\t\t: "+buku.getHalaman();
         String thePeminjam  = "Status\t\t\t\t: "+buku.getStatus();
-        String theDeskripsi = "Abstrak\t\t\t\t: "+buku.getAbstrak();
+        String theDeskripsi = "Deskripsi\t\t\t\t: "+buku.getDeskripsi();
+        String theGenre = "Genre\t\t\t\t: "+buku.getGenre();
 
         builder.setTitle("Pilih Aksi");
-        builder.setMessage(theJudul + "\n" + thePengarang + "\n" + theJurnal +
-                "\n" + theTahun + "\n" + theHalaman + "\n" + thePeminjam + "\n" + theDeskripsi + "\n");
+        builder.setMessage(theJudul + "\n" + thePengarang + "\n" + thePenerbit +
+                "\n" + theTahun + "\n" + thePeminjam + "\n" + theDeskripsi + "\n" + theGenre + "\n");
 
         builder.setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
             @Override
@@ -254,13 +252,13 @@ public class MenuBukuSkripsi extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Tambah Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.layout_edit_bukuskripsi, null);
+        View view = getLayoutInflater().inflate(R.layout.layout_edit_bukunovel, null);
 
         edit_judul = (EditText) view.findViewById(R.id.edit_judul_buku);
         edit_pengarang = (EditText) view.findViewById(R.id.edit_pengarang);
-        edit_penerbit = (EditText) view.findViewById(R.id.edit_jurnal);
-        edit_isbn = (EditText) view.findViewById(R.id.edit_halaman);
+        edit_penerbit = (EditText) view.findViewById(R.id.edit_penerbit);
         edit_tahun_terbit = (EditText) view.findViewById(R.id.edit_tahun);
+        edit_isbn = (EditText) view.findViewById(R.id.edit_isbn);
         edit_desc = (EditText) view.findViewById(R.id.edit_desc);
         mImageBuku = (ImageView)view.findViewById(R.id.image_buku);
 
@@ -291,7 +289,6 @@ public class MenuBukuSkripsi extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gallery = new Intent();
                 gallery.setType("image/*");
-
                 imageUri = null;
                 gallery.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(gallery, "Select Picture"), 1);
@@ -311,35 +308,35 @@ public class MenuBukuSkripsi extends AppCompatActivity {
                 if (!regJudul.isEmpty() && !regPengarang.isEmpty() && !regPenerbit.isEmpty() && !regTahun.isEmpty()
                         && !regDesc.isEmpty()) {
                     String kode = UUID.randomUUID().toString();
-                    submitDataBuku(new BukuSkripsi(kode, regJudul, regPengarang, regPenerbit,regISBN, regTahun, regDesc, peminjam , imageID));
+                    submitDataBuku(new BukuNovel(kode, regJudul, regPengarang, regPenerbit, regTahun, regDesc, peminjam, regISBN, imageID));
                     dialog.dismiss();
                 } else {
-                    Toast.makeText(MenuBukuSkripsi.this, "Data harus di isi bun!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MenuBukuNovel.this, "Data harus di isi bun!", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
-    private void dialogUpdateBuku(final BukuSkripsi buku) {
+    private void dialogUpdateBuku(final BukuNovel buku) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Data Buku");
-        View view = getLayoutInflater().inflate(R.layout.activity_edit_karya_ilmiah, null);
+        View view = getLayoutInflater().inflate(R.layout.activity_edit_buku_novel, null);
 
         String dataJudul = buku.getJudul();
         String dataPengarang = buku.getPengarang();
-        String dataPenerbit = buku.getUniversitas();
+        String dataPenerbit = buku.getPenerbit();
         String dataTahun = buku.getTahunterbit();
-        String dataDesc = buku.getAbstrak();
-        String dataISBN = buku.getHalaman();
+        String dataDesc = buku.getDeskripsi();
+        String dataISBN = buku.getISBN();
         String dataImage = buku.getImageKey();
 
         edit_judul = (EditText) view.findViewById(R.id.edit_judul_buku);
         edit_pengarang = (EditText) view.findViewById(R.id.edit_pengarang);
-        edit_penerbit = (EditText) view.findViewById(R.id.edit_jurnal);
-        edit_isbn = (EditText) view.findViewById(R.id.edit_halaman);
+        edit_penerbit = (EditText) view.findViewById(R.id.edit_penerbit);
         edit_tahun_terbit = (EditText) view.findViewById(R.id.edit_tahun);
         edit_desc = (EditText) view.findViewById(R.id.edit_desc);
-        mImageBuku = (ImageView)view.findViewById(R.id.image_buku);
+        edit_ISBN = (EditText) view.findViewById(R.id.edit_isbn);
+        mImageBuku = (ImageView) view.findViewById(R.id.image_buku);
 
         edit_judul.setText(dataJudul);
         edit_pengarang.setText(dataPengarang);
@@ -377,7 +374,6 @@ public class MenuBukuSkripsi extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gallery = new Intent();
                 gallery.setType("image/*");
-
                 imageUri = null;
                 gallery.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(gallery, "Select Picture"), 1);
@@ -389,16 +385,16 @@ public class MenuBukuSkripsi extends AppCompatActivity {
                 try {
                     buku.setJudul(edit_judul.getText().toString());
                     buku.setPengarang(edit_pengarang.getText().toString());
-                    buku.setUniversitas(edit_penerbit.getText().toString());
+                    buku.setPenerbit(edit_penerbit.getText().toString());
                     buku.setTahunterbit(edit_tahun_terbit.getText().toString());
-                    buku.setAbstrak(edit_desc.getText().toString());
-                    buku.setHalaman(edit_ISBN.getText().toString());
+                    buku.setDeskripsi(edit_desc.getText().toString());
+                    buku.setGenre(edit_ISBN.getText().toString());
                     buku.setImageKey(dataImage);
                     updateDataBuku(buku);
                     uploadPicture(dataImage);
                     dialog.dismiss();
                 }catch (Exception e){
-                    Toast.makeText(MenuBukuSkripsi.this, "Data harus di isi bun!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MenuBukuNovel.this, "Data harus di isi bun!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -414,35 +410,35 @@ public class MenuBukuSkripsi extends AppCompatActivity {
         }
     }
 
-    private void submitDataBuku(BukuSkripsi buku) {
+    private void submitDataBuku(BukuNovel buku) {
         mDatabaseReference.push()
                 .setValue(buku).addOnSuccessListener(this, new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void mVoid) {
                 uploadPicture(imageID);
-                Toast.makeText(MenuBukuSkripsi.this, "Data buku berhasil di simpan bun!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MenuBukuNovel.this, "Data buku berhasil di simpan bun!", Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void updateDataBuku(BukuSkripsi buku) {
+    private void updateDataBuku(BukuNovel buku) {
         mDatabaseReference.child(buku.getKode())
                 .setValue(buku).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void mVoid) {
                 uploadPicture(buku.getImageKey());
-                Toast.makeText(MenuBukuSkripsi.this, "Data berhasil di update bun!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MenuBukuNovel.this, "Data berhasil di update bun!", Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void hapusDataBuku(BukuSkripsi buku) {
+    private void hapusDataBuku(BukuNovel buku) {
         if (mDatabaseReference != null) {
             mDatabaseReference.child(buku.getKode())
                     .removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void mVoid) {
-                    Toast.makeText(MenuBukuSkripsi.this, "Data berhasil di hapus bun!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MenuBukuNovel.this, "Data berhasil di hapus bun!", Toast.LENGTH_LONG).show();
                 }
             });
         }

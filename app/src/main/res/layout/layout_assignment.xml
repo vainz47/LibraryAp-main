@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    <TextView
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/assignmentt"
-        android:textSize="60sp"
-        android:textColor="#000"
-        android:gravity="center"
-        android:layout_marginTop="250dp"/>
+        android:background="#344D64"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/black">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:id="@+id/history"
+            android:icon="@drawable/ic_history"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bookmark"
+            android:id="@+id/bookmark"
+            android:icon="@drawable/ic_bookmark"/>
+    </com.google.android.material.tabs.TabLayout>
 
 </RelativeLayout>

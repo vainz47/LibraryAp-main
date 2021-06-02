@@ -43,7 +43,7 @@ public class ListKaryaIlmiah extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater inflater = mContext.getLayoutInflater();
-        View listItemView = inflater.inflate(R.layout.list_buku_pelajaran_sma, null, true);
+        View listItemView = inflater.inflate(R.layout.list_buku_karya_ilmiah, null, true);
 
         TextView  judul_buku = listItemView.findViewById(R.id.judul_buku);
         TextView  penerbit = listItemView.findViewById(R.id.Pengarang);
