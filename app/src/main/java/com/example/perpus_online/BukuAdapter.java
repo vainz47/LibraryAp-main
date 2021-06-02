@@ -22,8 +22,7 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh>
     public BukuAdapter(ArrayList<Buku> bukuModelList, Context context, SelectedBuku selectedBuku) {
         this.bukuModelList = bukuModelList;
         this.selectedBuku = selectedBuku;
-       this.context = context;
-
+        this.context = context;
     }
 
     @NonNull
@@ -53,11 +52,12 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.BukuAdapterVh>
     public class BukuAdapterVh extends RecyclerView.ViewHolder {
 
         TextView  tvJudul;
-        ImageView imIcon;
+        ImageView imIcon, imageBuku;
         public BukuAdapterVh(@NonNull View itemView) {
             super(itemView);
             tvJudul = itemView.findViewById(R.id.judul_row_buku);
             imIcon = itemView.findViewById(R.id.image_row_buku);
+            imageBuku = itemView.findViewById(R.id.prefix);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

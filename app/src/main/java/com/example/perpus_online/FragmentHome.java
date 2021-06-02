@@ -41,7 +41,7 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.activity_main_page, container, false);
+        View root = inflater.inflate(R.layout.layout_home, container, false);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);
         FirebaseApp.initializeApp(root.getContext());
         mFirebaseInstance = FirebaseDatabase.getInstance();
@@ -49,8 +49,6 @@ public class FragmentHome extends Fragment implements BukuAdapter.SelectedBuku {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-        bottomNavigationView = root.findViewById(R.id.bottom_navigation_menu);
-        bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
 
         toolbar = root.findViewById(R.id.toolbar);
         recyclerView = root.findViewById(R.id.recyclerviewBuku);

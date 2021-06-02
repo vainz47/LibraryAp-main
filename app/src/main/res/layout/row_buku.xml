@@ -12,12 +12,11 @@
             android:background="@drawable/user_bg"
             android:layout_height="50dp">
             
-            <TextView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/prefix"
                 android:layout_width="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/grey"
-                android:text="T"
                 android:layout_centerInParent="true"
                 android:layout_height="wrap_content"/>
 

@@ -33,19 +33,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main_Page extends AppCompatActivity {
+    Fragment f = new FragmentHome();
     BottomNavigationView bottomNavigationView;
-    RecyclerView recyclerView;
-    Toolbar toolbar;
-    ArrayList<Buku> bukuArrayList;
-    BukuAdapter bukuAdapter;
-
-    FirebaseDatabase mFirebaseInstance;
-    DatabaseReference DBReference;
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigation = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
-            Fragment f = null;
             switch (item.getItemId()){
                 case R.id.books: //id apa iniiiiiiiiiiiiiiiiiiiiii
                     f = new FragmentHome();
@@ -65,10 +58,11 @@ public class Main_Page extends AppCompatActivity {
     };
 
 //    @SuppressLint("ResourceType")
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main_page);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_page);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,f).commit();
 //        recyclerView = findViewById(R.id.recyclerviewBuku);
 //        FirebaseApp.initializeApp(this);
 //        mFirebaseInstance = FirebaseDatabase.getInstance();
@@ -76,8 +70,8 @@ public class Main_Page extends AppCompatActivity {
 //
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigation);
 //
 //        toolbar = findViewById(R.id.toolbar);
 //        recyclerView = findViewById(R.id.recyclerviewBuku);
@@ -105,7 +99,7 @@ public class Main_Page extends AppCompatActivity {
 //        });
 //
 //
-//    }
+    }
 //
 //    @Override
 //    public void selectedBuku(Buku bukuModel) {
