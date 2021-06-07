@@ -35,7 +35,7 @@
         <activity android:name=".ProfileBukuNovel" />
         <activity android:name=".MenuBukuSkripsi" />
         <activity android:name=".MenuBukuKaryaIlmiah" />
-        <activity android:name=".BukuKaryaIlmiah" />
+        <activity android:name=".Ilmiah" />
         <activity android:name=".MenuBukuPelajaranSMA" />
         <activity android:name=".MenuBukuPelajaranSMP" />
         <activity android:name=".DataPerpus" />
