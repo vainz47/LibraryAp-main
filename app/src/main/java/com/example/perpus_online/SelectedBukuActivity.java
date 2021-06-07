@@ -3,12 +3,18 @@ package com.example.perpus_online;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,8 +27,9 @@ import java.io.IOException;
 
 public class SelectedBukuActivity extends AppCompatActivity {
 
-    TextView judul,penerbit,pengarang,tahunTerbit,deskripsi,isbn;
+    TextView judul,penerbit,pengarang,tahunTerbit,deskripsi,isbn, no_hp;
     ImageView image;
+    Button salin_nomor;
 
 
     @Override
@@ -37,6 +44,20 @@ public class SelectedBukuActivity extends AppCompatActivity {
         deskripsi = findViewById(R.id.deskripsi);
         isbn = findViewById(R.id.isbn);
         image = findViewById(R.id.imageView);
+        no_hp = findViewById(R.id.number_phone);
+        salin_nomor = findViewById(R.id.copy_btn);
+        salin_nomor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Number", no_hp.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                clip.getDescription();
+
+                Toast.makeText(SelectedBukuActivity.this, "Nomor HP sudah disalin", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Intent intent = getIntent();
         if (intent.getExtras() != null){

@@ -3,12 +3,18 @@ package com.example.perpus_online;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,8 +26,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class SelectedBukuIlmiahActivity extends AppCompatActivity {
-    TextView judul,jurnal,pengarang,tahunTerbit,deskripsi,jumlah_halaman, status;
+    TextView judul,jurnal,pengarang,tahunTerbit,deskripsi,jumlah_halaman, status, no_hp;
     ImageView image;
+    Button salin_nomor;
 
 
     @Override
@@ -37,6 +44,20 @@ public class SelectedBukuIlmiahActivity extends AppCompatActivity {
         jumlah_halaman = findViewById(R.id.jumlah);
         image = findViewById(R.id.ivKaryaIlmiah);
         status = findViewById(R.id.Keterangan);
+        no_hp = findViewById(R.id.number_phone);
+        salin_nomor = findViewById(R.id.copy_btn);
+        salin_nomor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Number", no_hp.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                clip.getDescription();
+
+                Toast.makeText(SelectedBukuIlmiahActivity.this, "Nomor HP sudah disalin", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Intent intent = getIntent();
         if (intent.getExtras() != null){

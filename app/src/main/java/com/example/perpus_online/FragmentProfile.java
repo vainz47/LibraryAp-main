@@ -43,7 +43,6 @@ public class FragmentProfile extends Fragment {
     private CircleImageView profile_image;
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
-    ArrayList<UserProfile> entries;
 
     DatabaseReference reference, logReference;
     FirebaseAuth fAuth;
