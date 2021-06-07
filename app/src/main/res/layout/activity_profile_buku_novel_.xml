@@ -68,7 +68,7 @@
                         android:textStyle="bold" />
 
                     <View
-                        android:layout_width="260dp"
+                        android:layout_width="360dp"
                         android:layout_height="3dp"
                         android:layout_marginTop="10dp"
                         android:background="@android:color/darker_gray" />
@@ -91,7 +91,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Genre :"
+                                android:text="Genre\t\t\t\t\t\t: "
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -113,7 +113,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:text="Tahun Tebit\t: "
+                                android:text="Tahun Tebit\t\t: "
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -165,7 +165,7 @@
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <me.biubiubiu.justifytext.library.JustifyTextView
                             android:id="@+id/deskripsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:text="Sedang terpinjam"
+                                android:text="Bisa Dipinjam"
                                 android:textAlignment="center"
                                 android:textColor="@color/blue"
                                 android:textSize="17dp"

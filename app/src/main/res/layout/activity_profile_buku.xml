@@ -87,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="5dp"
-                        android:text= "ISBN\t\t\t\t\t\t\t:"
+                        android:text= "ISBN\t\t\t\t\t\t: "
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
                         <TextView
@@ -157,11 +157,10 @@
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <me.biubiubiu.justifytext.library.JustifyTextView
                             android:id="@+id/deskripsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsdsadsdadasdadasdasdadasdadadasdadadsasda"
                             android:textColor="@color/black" />
 
