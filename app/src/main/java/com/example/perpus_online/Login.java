@@ -137,7 +137,6 @@ public class Login extends AppCompatActivity {
                             intent.putExtra("username",usernameFromDB);
                             intent.putExtra("password",passwordFromDB);
                             intent.putExtra("image", image);
-                            Toast.makeText(getApplicationContext(), "KEY IMAGE : "+image, Toast.LENGTH_LONG).show();
                             startActivity(intent);
                         }
 

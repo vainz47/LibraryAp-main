@@ -7,10 +7,6 @@
         android:id="@+id/books"
         android:icon="@drawable/ic_menubook"/>
     <item
-        android:title="Assignment"
-        android:id="@+id/assignment"
-        android:icon="@drawable/ic_assignment"/>
-    <item
         android:title="Profil"
         android:id="@+id/profil"
         android:icon="@drawable/ic_profil"/>

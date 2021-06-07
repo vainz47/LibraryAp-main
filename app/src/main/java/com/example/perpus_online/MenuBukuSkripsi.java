@@ -346,7 +346,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
         edit_penerbit.setText(dataPenerbit);
         edit_tahun_terbit.setText(dataTahun);
         edit_desc.setText(dataDesc);
-        edit_ISBN.setText(dataISBN);
+        edit_isbn.setText(dataISBN);
 
 
         builder.setView(view);
@@ -392,7 +392,7 @@ public class MenuBukuSkripsi extends AppCompatActivity {
                     buku.setUniversitas(edit_penerbit.getText().toString());
                     buku.setTahunterbit(edit_tahun_terbit.getText().toString());
                     buku.setAbstrak(edit_desc.getText().toString());
-                    buku.setHalaman(edit_ISBN.getText().toString());
+                    buku.setHalaman(edit_isbn.getText().toString());
                     buku.setImageKey(dataImage);
                     updateDataBuku(buku);
                     uploadPicture(dataImage);

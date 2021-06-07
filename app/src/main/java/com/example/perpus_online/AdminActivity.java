@@ -17,7 +17,6 @@ public class AdminActivity extends AppCompatActivity {
     TextView username;
     String _USERNAME;
     Button callLogout;
-
     DatabaseReference reference;
 
     @Override

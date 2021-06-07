@@ -43,9 +43,6 @@ public class Main_Page extends AppCompatActivity {
                 case R.id.books: //id apa iniiiiiiiiiiiiiiiiiiiiii
                     f = new FragmentHome();
                     break;
-                case R.id.assignment:
-                    f = new FragmentAssignment();
-                    break;
                 case R.id.profil:
                     f = new FragmentProfile();
                     break;

@@ -41,7 +41,7 @@ public class SelectedBukuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.getExtras() != null){
             Buku bukuModel = (Buku) intent.getSerializableExtra("data");
-            judul.setText(bukuModel.getJudul())   ;
+            judul.setText(bukuModel.getJudul())   ; 
             pengarang.setText(bukuModel.getPengarang());
             penerbit.setText(bukuModel.getPenerbit());
             tahunTerbit.setText(bukuModel.getTahunterbit());
