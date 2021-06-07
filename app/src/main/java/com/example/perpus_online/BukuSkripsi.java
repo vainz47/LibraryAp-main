@@ -1,6 +1,8 @@
 package com.example.perpus_online;
 
-public class BukuSkripsi {
+import java.io.Serializable;
+
+public class BukuSkripsi implements Serializable {
     private String kode;
     private String judul;
     private String pengarang;

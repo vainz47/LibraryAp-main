@@ -37,7 +37,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/ivKaryaIlmiah"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:paddingTop="10dp"
@@ -192,18 +192,6 @@
 
                         </TextView>
 
-                        <Button
-                            android:id="@+id/btnPinjam"
-                            android:layout_width="120dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/costum_button"
-                            android:text="PINJAM"
-                            android:textColor="@color/white"
-
-                            android:textAllCaps="false"
-
-                            />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

@@ -1,143 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Main_Page">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#344D64"
-        app:menu="@menu/searching"
-        app:navigationIconTint="@color/icons_color">
-
-    </com.google.android.material.appbar.MaterialToolbar>
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="5dp"
-            android:text="Buku :"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/liat1"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="Liat Semua"
-            android:textAlignment="textEnd"
-            android:textColor="@color/black" />
+            android:layout_height="wrap_content"
+            android:background="#344D64"
+            app:menu="@menu/searching"
+            app:navigationIconTint="@color/icons_color">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Buku :"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Buku Pelajaran SMP :"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Buku Pelajaran SMA:"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Novel :"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Skripsi :"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Jurnal :"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/liat6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Liat Semua"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenLight">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewBuku6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp" />
+
+        </RelativeLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewBuku"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="5dp"
-            android:text="Buku Pelajaran SMP :"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/liat2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="Liat Semua"
-            android:textAlignment="textEnd"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewBuku2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="5dp"
-            android:text="Buku Pelajaran SMA:"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/liat3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="Liat Semua"
-            android:textAlignment="textEnd"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenLight">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewBuku3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+</ScrollView>

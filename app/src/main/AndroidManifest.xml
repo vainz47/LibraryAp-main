@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Perpus_online"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ReadBuku"></activity>
+        <activity android:name=".SelectedBukuIlmiahActivity"></activity>
+        <activity android:name=".SelectedBukuNovelActivity" />
+        <activity android:name=".SelectedBukuSkripsiActivity" />
+        <activity android:name=".ReadBuku" />
         <activity android:name=".MenuBukuNovel" />
         <activity android:name=".ListBukuSkripsi" />
         <activity android:name=".ListBukuNovel" />
