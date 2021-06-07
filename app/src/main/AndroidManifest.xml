@@ -28,8 +28,6 @@
         <activity android:name=".BukuPelajaranSMA" />
         <activity android:name=".EditKaryaIlmiah" />
         <activity android:name=".EditBuku" />
-        <activity android:name=".ProfileBukuPelajaranSMP" />
-        <activity android:name=".ProfileBukuPelajaranSMA" />
         <activity android:name=".ProfileBukuKaryaIlmiah" />
         <activity android:name=".ProfileBukuSkripsi" />
         <activity android:name=".ProfileBukuNovel" />
